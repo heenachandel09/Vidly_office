@@ -1,0 +1,36 @@
+﻿@model Vidly.ViewModels.CustomerListViewModel
+@{
+    ViewBag.Title = "RenderCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+
+<div class="bs-docs-section">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bs-component">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                          
+                            <th scope="col">Customer Name</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                       @foreach (var cust in Model.customerviewmodel)
+                       {
+                        <tr class="table-light">
+                            <td>@Html.ActionLink(cust.CustomerName,"Details", "Customer", new { id = cust.Id})</td>
+                        </tr>
+                       }
+
+                    </tbody>
+                </table>
+            </div><!-- /example -->
+        </div>
+    </div>
+</div>
