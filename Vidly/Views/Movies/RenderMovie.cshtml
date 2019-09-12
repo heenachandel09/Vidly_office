@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "RenderMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@{ 
+    var movies = ViewBag.movies;
+}
+
+
+<div class="bs-docs-section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bs-component">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Customer</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (movies.Count == 0)
+                        {
+                            <p>We dont have Movies to rent</p>
+                        }
+                        else
+                        {
+                            <tr class="table-light">
+                                @foreach (var movie in movies)
+                                {
+                                    @movie.Name
+                                }
+                           </tr>
+                           
+                        }
+
+                    </tbody>
+
+
+
+                </table>
+            </div><!-- /example -->
+        </div>
+    </div>
+</div>
