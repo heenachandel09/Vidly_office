@@ -27,19 +27,21 @@ namespace Vidly.Controllers
 
             return View(cust);
         }
-        public ActionResult Details(int id)
+       public ActionResult Details(int id)
         {
             var customer = new List<Customer>
            {
                new Customer {CustomerName="Yes Bank",Id=1},
                new Customer {CustomerName="Axis Bank",Id=2 }
            };
-            Customer custDetail = customer.AsEnumerable().SingleOrDefault(x => x.Id == id);
+            var query = from cust in customer
+                        where cust.Id == id
+                        select cust.CustomerName;
 
-            //customer = customer.SingleOrDefault(x => x.Id == id);
-           
-            ViewBag.id = id;
-            return View("Details", custDetail);
+
+            ViewBag.CustomerName = query.ToList();
+          
+            return View();
         }
     }
 }
