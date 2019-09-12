@@ -30,6 +30,13 @@ namespace Vidly.Controllers
         }
         public ActionResult RenderMovie()
         {
+            var mv = new List<Movie>
+            {
+               new Movie {Id=1, Name="Fast and Furious"},
+               new Movie {Id=2, Name="The Meg" },
+               new Movie {Id=3, Name="Shrek" }
+            };
+            ViewBag.movies = mv;
             return View();
         }
     }
